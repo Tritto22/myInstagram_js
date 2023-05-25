@@ -6,4 +6,86 @@
 
 body {
     background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+    height: 90vh;
+    width: 45vw;
+    border: 2px solid white; /******** dubug ********/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-top {
+    display: flex;
+    align-items: center;
+    height: 20%;
+}
+
+.img-account {
+    border: 2px solid yellowgreen; /******** dubug ********/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 0 20px;
+}
+
+.img-account img {
+    border-radius: 50%;
+}
+
+.info-account .name-account, .info-account .date-ph {
+    margin: 10px;
+}
+
+.container-center {
+    border: 2px solid red; /******** dubug ********/
+    height: 60%;
+    margin: 0 30px;
+}
+
+.container-center .ph {
+    border: 2px solid aliceblue; /******** dubug ********/
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.ph img {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container-center .statistics {
+    border: 2px solid aliceblue; /******** dubug ********/
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+    align-items: center;
+}
+
+.i-like, .send-comment {
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.write-comment {
+    width: 250px;
+}
+
+.container-bottom {
+    text-align: center;
+    margin: 10px;
 }
