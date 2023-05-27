@@ -61,7 +61,11 @@ const arrayCards = [
 
 /* *********code********* */
 generateCard(arrayCards);
-addLike();
+initialize(toggleLike);
+initialize(addComment);
+
+
+
 
 /* *********functions********* */
 function generateCard(array) {
@@ -92,13 +96,15 @@ function generateCard(array) {
                 <div class="statistics">
                     <button class="i-like">&#10084;</button>
                     <h4>Piace a <span class="box-n-like"><strong class="n-like">${array[i].like}</strong></span> persone</h4>
-                    <input type="text" class="write-comment" placeholder="scrivi un commento">
+                    <input type="text" value = "" class="write-comment" placeholder="scrivi un commento">
                     <button class="send-comment">&#9997;</button>
                 </div>
             </section>
 
             <section class="container-bottom">
-                <p class="comment">${array[i].comment}</p>
+                <h3>DESCRIZIONE</h3>
+                <p class="description">${array[i].comment}</p>
+                <h3>COMMENTI</h3>
             </section>
         </section>
     `
@@ -106,21 +112,56 @@ function generateCard(array) {
     }
 }
 
-function addLike () {
-    const heart = document.getElementsByClassName('i-like');
-    const nLike = document.getElementsByClassName('n-like');
-    const boxNLike = document.getElementsByClassName('box-n-like');
+function toggleLike(index) {
+    const heart = document.getElementsByClassName('i-like')[index];
+    const nLike = document.getElementsByClassName('n-like')[index];
+    const boxNLike = document.getElementsByClassName('box-n-like')[index];
+    const newNLike = document.createElement('strong');
 
-    for (let i = 0; i < arrayCards.length; i++) {
-        heart[i].addEventListener('click', function () {
-            nLike[i].remove();
-            heart[i].classList.add('red')
-            arrayCards[i].like += 1;
-            console.log(arrayCards[i]);
-            const newNLike = document.createElement('strong');
+    heart.addEventListener('click', function () {
+        if (heart.classList.contains('red')) {
+            newNLike.remove();
+            heart.classList.remove('red');
+            arrayCards[index].like --;
             newNLike.classList.add('n-like');
-            boxNLike[i].appendChild(newNLike);
-            newNLike.innerHTML = (arrayCards[i].like);
-        });
+            boxNLike.appendChild(newNLike);
+            newNLike.innerHTML = arrayCards[index].like;
+        } else {
+            nLike.remove();
+            heart.classList.add('red');
+            arrayCards[index].like ++;
+            newNLike.classList.add('n-like');
+            boxNLike.appendChild(newNLike);
+            newNLike.innerHTML = arrayCards[index].like;
+        }
+    });
+}
+
+function initialize(initFunc) {
+    for (let i = 0; i < arrayCards.length; i++) {
+
+        initFunc(i);
     }
+}
+
+function addComment(index) {
+    const writeComment = document.getElementsByClassName('write-comment')[index];
+    const sendComment = document.getElementsByClassName('send-comment')[index];
+    const viewComment = document.getElementsByClassName('container-bottom')[index];
+    const comment = document.createElement('p');
+
+    sendComment.addEventListener('click', function () {
+        comment.classList.add('comment');
+        viewComment.appendChild(comment);
+        comment.innerHTML = writeComment.value;
+        console.log(comment);
+        clear(writeComment);
+    })
+
+    
+}
+
+function clear(input) {
+    input.value = '';
+    input.textContent = '';
 }

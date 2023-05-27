@@ -20,7 +20,7 @@ body {
 .card {
     height: 90vh;
     width: 45vw;
-    border: 2px solid white; /******** dubug ********/
+    /* border: 2px solid white; ******* dubug ******* */
 }
 
 .container-top {
@@ -30,7 +30,7 @@ body {
 }
 
 .img-account {
-    border: 2px solid yellowgreen; /******** dubug ********/
+    /* border: 2px solid yellowgreen; ******* dubug ******* */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,13 +49,13 @@ body {
 }
 
 .container-center {
-    border: 2px solid red; /******** dubug ********/
+    /* border: 2px solid red; ******* dubug ******* */
     height: 60%;
     margin: 0 30px;
 }
 
 .container-center .ph {
-    border: 2px solid aliceblue; /******** dubug ********/
+    /* border: 2px solid aliceblue; ******* dubug ******* */
     height: 80%;
     display: flex;
     justify-content: center;
@@ -69,7 +69,7 @@ body {
 }
 
 .container-center .statistics {
-    border: 2px solid aliceblue; /******** dubug ********/
+    /* border: 2px solid aliceblue; ******* dubug ******* */
     display: flex;
     justify-content: space-around;
     height: 20%;
@@ -90,7 +90,13 @@ body {
 
 .container-bottom {
     text-align: center;
-    margin: 10px;
+    overflow: auto;
+    height: 20%;
+}
+
+.description, .comment {
+    font-size: small;
+    padding: 10px;
 }
 
 .red {
